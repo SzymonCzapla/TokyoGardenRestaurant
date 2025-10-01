@@ -1,0 +1,66 @@
+<header>
+    <h1>Twoje Zamówienie</h1>
+    <p>Sprawdź szczegóły i złóż zamówienie</p>
+</header>
+
+<section class="order-section">
+    <div *ngIf="cart.length === 0" class="empty-cart">Twój koszyk jest pusty.</div>
+
+    <div class="menu-items">
+        <div *ngFor="let item of cart" class="menu-item">
+            <h3 class="menu-item-name">{{ item.nazwa_pozycji }}</h3>
+            <p class="menu-item-price">{{ item.cena | currency:'PLN':'symbol':'1.2-2' }}</p>
+        </div>
+    </div>
+
+    <form (ngSubmit)="submitOrder()" class="order-form">
+        <div class="form-group">
+            <label for="orderOptions">Opcje Zamówienia:</label>
+            <select [(ngModel)]="orderData.orderOptions" name="orderOptions" (change)="updateDeliveryOption()">
+                <option value="W Restauracji">W Restauracji</option>
+                <option value="Na Wynos">Na Wynos</option>
+                <option value="Na Dowóz">Na Dowóz</option>
+            </select>
+        </div>
+
+        <div *ngIf="showAddressFields" class="form-group">
+            <label>Miasto:</label>
+            <input type="text" name="city" [(ngModel)]="orderData.city">
+
+            <label>Ulica:</label>
+            <input type="text" name="street" [(ngModel)]="orderData.street">
+
+            <label>Numer Domu:</label>
+            <input type="text" name="houseNumber" [(ngModel)]="orderData.houseNumber">
+
+            <label>Numer Mieszkania:</label>
+            <input type="text" name="apartmentNumber" [(ngModel)]="orderData.apartmentNumber">
+        </div>
+
+        <div class="form-group">
+            <label>Uwagi do zamówienia:</label>
+            <textarea name="orderComments" [(ngModel)]="orderData.orderComments"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Metoda Płatności:</label>
+            <select name="paymentMethod" [(ngModel)]="orderData.paymentMethod">
+                <option value="Karta Płatnicza">Karta Płatnicza</option>
+                <option value="Gotówka">Gotówka</option>
+            </select>
+        </div>
+
+        <div class="total">
+            <h4>Łączna cena:</h4>
+            <p>{{ totalPrice + additionalFee | currency:'PLN':'symbol':'1.2-2' }}</p>
+            <p *ngIf="additionalFee > 0" class="additional-fee">
+                dodatek {{ additionalFee | currency:'PLN':'symbol':'1.2-2' }}
+            </p>
+        </div>
+
+        <div class="cart-actions">
+            <button class="add-to-cart-button" type="submit">Złóż zamówienie</button>
+            <button class="go-home-button" type="button" (click)="goToHome()">Powrót do strony głównej</button>
+        </div>
+    </form>
+</section>

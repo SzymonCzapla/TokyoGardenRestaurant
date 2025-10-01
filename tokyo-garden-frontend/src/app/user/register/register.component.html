@@ -1,0 +1,78 @@
+<section class="register-page">
+  <div class="register-card">
+    <img class="brand" src="assets/logo.png" alt="Tokyo Garden" />
+
+    <h2>Rejestracja</h2>
+
+    <ul id="errors" *ngIf="errors?.length">
+      <li *ngFor="let error of errors" class="error">{{ error }}</li>
+    </ul>
+
+    <form (ngSubmit)="register()" #registerForm="ngForm" novalidate>
+      <div class="form-group">
+        <label for="nazwaUzytkownika">Nazwa użytkownika</label>
+        <input
+          id="nazwaUzytkownika"
+          type="text"
+          name="nazwaUzytkownika"
+          [(ngModel)]="registerData.nazwaUzytkownika"
+          required
+          placeholder="np. janek"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="haslo1">Hasło</label>
+        <input
+          id="haslo1"
+          type="password"
+          name="haslo1"
+          [(ngModel)]="registerData.haslo1"
+          required
+          placeholder="Hasło"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="haslo2">Powtórz hasło</label>
+        <input
+          id="haslo2"
+          type="password"
+          name="haslo2"
+          [(ngModel)]="registerData.haslo2"
+          required
+          placeholder="Powtórz hasło"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefon (9 cyfr)</label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          [(ngModel)]="registerData.phone"
+          required
+          pattern="[0-9]{9}"
+          placeholder="np. 501234567"
+        />
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input
+          id="regulamin"
+          type="checkbox"
+          name="regulamin"
+          [(ngModel)]="registerData.regulamin"
+        />
+        <label for="regulamin">Akceptuję regulamin</label>
+      </div>
+
+      <p class="policy-link">
+        <a href="/Regulamin.txt" target="_blank" rel="noopener">Przeczytaj regulamin</a>
+      </p>
+
+      <button type="submit" class="btn-primary">Zarejestruj</button>
+    </form>
+  </div>
+</section>

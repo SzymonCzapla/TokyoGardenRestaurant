@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+h1, #total-price h4 {
+    color: #4c2264;
+    text-align: center;
+    margin: 0;
+}
+
+#total-price h4,
+#total-price-value {
+    text-align: right;
+}
+
+#cart-items, #total-price {
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+}
+
+    .cart-item h4, .cart-item p {
+        margin: 0;
+        color: #4c2264;
+    }
+
+    .cart-item p {
+        margin-top: 5px;
+    }
+
+    .cart-item form {
+        margin-top: 5px;
+    }
+
+#checkout-button {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #4c2264;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+    #checkout-button:hover {
+        background-color: #7a288a;
+    }
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cart-item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+    .cart-item button:hover {
+        background-color: #c82333;
+    }
+
+.quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantity-control button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 14px;
+    padding: 0;
+}
+
+
+.quantity-control button:hover {
+    background-color: #7a288a;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.remove-button {
+    display: block;
+    margin: 10px auto;
+    padding: 6px 12px;
+    font-size: 12px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: #c82333;
+}
+
